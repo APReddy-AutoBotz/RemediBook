@@ -1,0 +1,138 @@
+﻿  error - The argument type 'CardTheme' can't be assigned to the parameter type 'CardThemeData?'.  - lib\core\theme\remedi_theme.dart:58:18 - argument_type_not_assignable
+  error - Target of URI doesn't exist: '../../../core/theme/remedi_theme.dart' - lib\features\auth\presentation\screens\auth_screen.dart:4:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../dashboard/presentation/screens/dashboard_screen.dart' - lib\features\auth\presentation\screens\auth_screen.dart:5:8 - uri_does_not_exist
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:58:24 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:72:24 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:106:74 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:107:42 - undefined_identifier
+  error - Invalid constant value - lib\features\auth\presentation\screens\auth_screen.dart:108:55 - invalid_constant
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:108:55 - undefined_identifier
+  error - The name 'DashboardScreen' isn't a class - lib\features\auth\presentation\screens\auth_screen.dart:130:52 - creation_with_non_type
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:139:24 - undefined_identifier
+  error - Invalid constant value - lib\features\auth\presentation\screens\auth_screen.dart:152:51 - invalid_constant
+  error - Undefined name 'RemediTheme' - lib\features\auth\presentation\screens\auth_screen.dart:152:51 - undefined_identifier
+  error - Target of URI doesn't exist: '../../core/theme/remedi_theme.dart' - lib\features\dashboard\domain\suryahaaram_mode.dart:2:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: 'heal_streak_ring.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:3:8 - uri_does_not_exist
+  error - The name 'SizedBox' is defined in the libraries 'package:flutter/src/widgets/basic.dart (via package:flutter/material.dart)' and 'package:remedibook/features/dashboard/presentation/widgets/command_palette.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:53:25 - ambiguous_import
+  error - The method 'HealStreakPainter' isn't defined for the type '_DashboardScreenState' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:62:36 - undefined_method
+  error - The name 'SizedBox' is defined in the libraries 'package:flutter/src/widgets/basic.dart (via package:flutter/material.dart)' and 'package:remedibook/features/dashboard/presentation/widgets/command_palette.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:92:25 - ambiguous_import
+  error - The name 'SizedBox' is defined in the libraries 'package:flutter/src/widgets/basic.dart (via package:flutter/material.dart)' and 'package:remedibook/features/dashboard/presentation/widgets/command_palette.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:97:25 - ambiguous_import
+  error - The name 'SizedBox' is defined in the libraries 'package:flutter/src/widgets/basic.dart (via package:flutter/material.dart)' and 'package:remedibook/features/dashboard/presentation/widgets/command_palette.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:109:29 - ambiguous_import
+  error - The name 'SizedBox' is defined in the libraries 'package:flutter/src/widgets/basic.dart (via package:flutter/material.dart)' and 'package:remedibook/features/dashboard/presentation/widgets/command_palette.dart' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:120:25 - ambiguous_import
+  error - Invalid constant value - lib\features\dashboard\presentation\screens\dashboard_screen.dart:130:20 - invalid_constant
+  error - The method 'CommandPalette' isn't defined for the type '_DashboardScreenState' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:130:20 - undefined_method
+  error - Expected to find ';' - lib\features\dashboard\presentation\widgets\command_palette.dart:4:25 - expected_token
+  error - Variables must be declared using the keywords 'const', 'final', 'var' or a type name - lib\features\dashboard\presentation\widgets\command_palette.dart:4:25 - missing_const_final_var_or_type
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:4:36 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:4:38 - expected_executable
+  error - Expected to find ';' - lib\features\dashboard\presentation\widgets\command_palette.dart:4:39 - expected_token
+  error - Variables must be declared using the keywords 'const', 'final', 'var' or a type name - lib\features\dashboard\presentation\widgets\command_palette.dart:4:39 - missing_const_final_var_or_type
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:4:44 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:4:46 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:13:26 - expected_executable
+  error - Can't have modifier 'const' here - lib\features\dashboard\presentation\widgets\command_palette.dart:14:17 - extraneous_modifier
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\dashboard\presentation\widgets\command_palette.dart:14:36 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\dashboard\presentation\widgets\command_palette.dart:14:36 - obsolete_colon_for_default_value
+  error - Undefined name 'RemediTheme' - lib\features\dashboard\presentation\widgets\command_palette.dart:14:38 - undefined_identifier
+  error - A function body must be provided - lib\features\dashboard\presentation\widgets\command_palette.dart:14:60 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:14:60 - expected_executable
+  error - Can't have modifier 'const' here - lib\features\dashboard\presentation\widgets\command_palette.dart:15:17 - extraneous_modifier
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\dashboard\presentation\widgets\command_palette.dart:15:38 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\dashboard\presentation\widgets\command_palette.dart:15:38 - obsolete_colon_for_default_value
+  error - A function body must be provided - lib\features\dashboard\presentation\widgets\command_palette.dart:15:43 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:15:43 - expected_executable
+  error - Expected an identifier - lib\features\dashboard\presentation\widgets\command_palette.dart:17:37 - missing_identifier
+  error - A function body must be provided - lib\features\dashboard\presentation\widgets\command_palette.dart:17:58 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:17:58 - expected_executable
+  error - The name '_buildSuggestionRow' is already defined - lib\features\dashboard\presentation\widgets\command_palette.dart:18:17 - duplicate_definition
+  error - Expected an identifier - lib\features\dashboard\presentation\widgets\command_palette.dart:18:37 - missing_identifier
+  error - A function body must be provided - lib\features\dashboard\presentation\widgets\command_palette.dart:18:57 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:18:57 - expected_executable
+  error - The name '_buildSuggestionRow' is already defined - lib\features\dashboard\presentation\widgets\command_palette.dart:19:17 - duplicate_definition
+  error - Expected an identifier - lib\features\dashboard\presentation\widgets\command_palette.dart:19:37 - missing_identifier
+  error - A function body must be provided - lib\features\dashboard\presentation\widgets\command_palette.dart:19:63 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:19:63 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:20:15 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:20:16 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:21:13 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:21:14 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:22:11 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:22:12 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:23:9 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:23:10 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:24:7 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:24:8 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:25:5 - expected_executable
+  error - Unexpected text ';' - lib\features\dashboard\presentation\widgets\command_palette.dart:25:6 - unexpected_token
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:26:3 - expected_executable
+  error - Undefined class 'Widget' - lib\features\dashboard\presentation\widgets\command_palette.dart:28:3 - undefined_class
+  error - The name '_buildSuggestionRow' is already defined - lib\features\dashboard\presentation\widgets\command_palette.dart:28:10 - duplicate_definition
+  error - The function 'Padding' isn't defined - lib\features\dashboard\presentation\widgets\command_palette.dart:29:12 - undefined_function
+  error - Undefined name 'EdgeInsets' - lib\features\dashboard\presentation\widgets\command_palette.dart:30:22 - undefined_identifier
+  error - The function 'Row' isn't defined - lib\features\dashboard\presentation\widgets\command_palette.dart:31:14 - undefined_function
+  error - The name 'Icon' isn't a class - lib\features\dashboard\presentation\widgets\command_palette.dart:33:17 - creation_with_non_type
+  error - Undefined name 'Icons' - lib\features\dashboard\presentation\widgets\command_palette.dart:33:22 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\dashboard\presentation\widgets\command_palette.dart:33:52 - undefined_identifier
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\widgets\command_palette.dart:34:17 - creation_with_non_type
+  error - The function 'Text' isn't defined - lib\features\dashboard\presentation\widgets\command_palette.dart:35:11 - undefined_function
+  error - The name 'TextStyle' isn't a class - lib\features\dashboard\presentation\widgets\command_palette.dart:37:26 - creation_with_non_type
+  error - Undefined name 'RemediTheme' - lib\features\dashboard\presentation\widgets\command_palette.dart:37:57 - undefined_identifier
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\widgets\command_palette.dart:43:1 - expected_executable
+  error - Target of URI doesn't exist: '../widgets/red_alert_modal.dart' - lib\features\discovery\domain\safety_interceptor.dart:2:8 - uri_does_not_exist
+  error - The name 'RedAlertModal' isn't a class - lib\features\discovery\domain\safety_interceptor.dart:19:35 - creation_with_non_type
+  error - Target of URI doesn't exist: '../domain/safety_interceptor.dart' - lib\features\discovery\presentation\screens\discovery_screen.dart:5:8 - uri_does_not_exist
+  error - Undefined name 'SafetyInterceptor' - lib\features\discovery\presentation\screens\discovery_screen.dart:29:11 - undefined_identifier
+  error - Undefined name 'SafetyInterceptor' - lib\features\discovery\presentation\screens\discovery_screen.dart:30:9 - undefined_identifier
+  error - The name 'TriadCard' isn't a class - lib\features\discovery\presentation\screens\discovery_screen.dart:108:13 - creation_with_non_type
+  error - Undefined class 'VoidCallback' - lib\features\discovery\presentation\widgets\triad_card.dart:1:9 - undefined_class
+  error - The final variable 'onAction' must be initialized - lib\features\discovery\presentation\widgets\triad_card.dart:1:23 - final_not_initialized
+  error - Can't have modifier 'const' here - lib\features\discovery\presentation\widgets\triad_card.dart:3:3 - extraneous_modifier
+  error - Super parameters can only be used in non-redirecting generative constructors - lib\features\discovery\presentation\widgets\triad_card.dart:4:5 - invalid_super_formal_parameter_location
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:5:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:6:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:7:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:8:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:9:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\features\discovery\presentation\widgets\triad_card.dart:10:5 - field_initializer_outside_constructor
+  error - A function body must be provided - lib\features\discovery\presentation\widgets\triad_card.dart:11:5 - missing_function_body
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\discovery\presentation\widgets\triad_card.dart:15:36 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\discovery\presentation\widgets\triad_card.dart:15:36 - obsolete_colon_for_default_value
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\discovery\presentation\widgets\triad_card.dart:16:32 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\discovery\presentation\widgets\triad_card.dart:16:32 - obsolete_colon_for_default_value
+  error - The method 'styleFrom' isn't defined for the type 'Function' - lib\features\discovery\presentation\widgets\triad_card.dart:16:49 - undefined_method
+  error - Undefined name 'RemediTheme' - lib\features\discovery\presentation\widgets\triad_card.dart:17:46 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\discovery\presentation\widgets\triad_card.dart:18:46 - undefined_identifier
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\discovery\presentation\widgets\triad_card.dart:21:32 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\discovery\presentation\widgets\triad_card.dart:21:32 - obsolete_colon_for_default_value
+  error - The name 'Center' isn't a class - lib\features\discovery\presentation\widgets\triad_card.dart:21:40 - creation_with_non_type
+  error - The function 'Text' isn't defined - lib\features\discovery\presentation\widgets\triad_card.dart:21:54 - undefined_function
+  error - A function body must be provided - lib\features\discovery\presentation\widgets\triad_card.dart:22:26 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:22:26 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:23:23 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:23:24 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:24:21 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:24:22 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:25:19 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:25:20 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:26:17 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:26:18 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:27:15 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:27:16 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:28:13 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:28:14 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:29:11 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:29:12 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:30:9 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:30:10 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:31:7 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:31:8 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:32:5 - expected_executable
+  error - Unexpected text ';' - lib\features\discovery\presentation\widgets\triad_card.dart:32:6 - unexpected_token
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:33:3 - expected_executable
+  error - Expected a method, getter, setter or operator declaration - lib\features\discovery\presentation\widgets\triad_card.dart:34:1 - expected_executable
+  error - Target of URI doesn't exist: '../../../core/theme/remedi_theme.dart' - lib\features\splash\presentation\screens\cinematic_splash.dart:3:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../../features/auth/presentation/screens/auth_screen.dart' - lib\features\splash\presentation\screens\cinematic_splash.dart:4:8 - uri_does_not_exist
+  error - The name 'AuthScreen' isn't a class - lib\features\splash\presentation\screens\cinematic_splash.dart:41:72 - creation_with_non_type
+  error - Undefined name 'RemediTheme' - lib\features\splash\presentation\screens\cinematic_splash.dart:66:24 - undefined_identifier
+  error - Undefined name 'RemediTheme' - lib\features\splash\presentation\screens\cinematic_splash.dart:95:28 - undefined_identifier
+  error - The method 'generateRemedyPdf' isn't defined for the type 'PdfService' - lib\screens\result_screen.dart:164:48 - undefined_method

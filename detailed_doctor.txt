@@ -1,0 +1,551 @@
+﻿flutter : Warning: 
+Unexpected 
+vswhere.exe JSON 
+output. 
+FormatException: 
+Unexpected character 
+(at character 3)
+At line:1 char:1
++ flutter doctor -v 
+2>&1 | Out-File 
+-Encoding UTF8 
+-FilePath detailed_d 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo   
+           : 
+NotSpecified: (Warni 
+   ng: Unexpe...at 
+charact    er 
+3):String) [], Remot 
+   eException
+    + FullyQualifiedE
+rrorId     : 
+NativeCommandError
+ 
+[00080000..7634D520..
+F62CD520]
+  ^
+To see the full 
+JSON, run flutter 
+doctor -vv.
+Warning: Unexpected 
+vswhere.exe JSON 
+output. 
+FormatException: 
+Unexpected character 
+(at character 3)
+[00080000..7634D520..
+F62CD520]
+  ^
+To see the full 
+JSON, run flutter 
+doctor -vv.
+Warning: Unexpected 
+vswhere.exe JSON 
+output. 
+FormatException: 
+Unexpected character 
+(at character 3)
+[00080000..7634D520..
+F62CD520]
+  ^
+To see the full 
+JSON, run flutter 
+doctor -vv.
+Warning: Unexpected 
+vswhere.exe JSON 
+output. 
+FormatException: 
+Unexpected character 
+(at character 3)
+[00080000..7634D520..
+F62CD520]
+  ^
+To see the full 
+JSON, run flutter 
+doctor -vv.
+Warning: Unexpected 
+vswhere.exe JSON 
+output. 
+FormatException: 
+Unexpected character 
+(at character 3)
+[00080000..7634D520..
+F62CD520]
+  ^
+To see the full 
+JSON, run flutter 
+doctor -vv.
+[ΓêÜ] Flutter (Channel stable, 3.38.7, on Microsoft Windows [Version 10.0.26200.7623], locale en-IN) [883ms]
+    ΓÇó Flutter version 3.38.7 on channel stable at D:\flutter
+    ΓÇó Upstream repository https://github.com/flutter/flutter.git
+    ΓÇó Framework revision 3b62efc2a3 (4 days ago), 2026-01-13 13:47:42 -0800
+    ΓÇó Engine revision 78fc3012e4
+    ΓÇó Dart version 3.10.7
+    ΓÇó DevTools version 2.51.1
+    ΓÇó Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, omit-legacy-version-file, enable-lldb-debugging
+
+Error 1 retrieving 
+device properties 
+for detours::
+adb.exe: device 
+'detours:' not found
+
+Error 1 retrieving 
+device properties 
+for 
+75FCB330->758869D0::
+adb.exe: device '75FC
+B330->758869D0:' not 
+found
+
+Error 1 retrieving 
+device properties 
+for 
+75FCA8A0->758859B0::
+adb.exe: device '75FC
+A8A0->758859B0:' not 
+found
+
+Error 1 retrieving 
+device properties 
+for 
+75FCB370->75881360::
+adb.exe: device '75FC
+B370->75881360:' not 
+found
+
+Error 1 retrieving 
+device properties 
+for 
+7634EB30->7700A540::
+adb.exe: device '7634
+EB30->7700A540:' not 
+found
+
+[ΓêÜ] Windows Version (Windows 11 or higher, 25H2, 2009) [2.3s]
+
+[ΓêÜ] Android toolchain - develop for Android devices (Android SDK version 36.1.0) [3.6s]
+    ΓÇó Android SDK at D:\Android\SDK
+    ΓÇó Emulator version 36.3.10.0 (build_id 14472402) (CL:N/A)
+    ΓÇó Platform android-36, build-tools 36.1.0
+    ΓÇó Java binary at: D:\Program Files\Android\Android Studio\jbr\bin\java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    ΓÇó Java version OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+    ΓÇó All Android licenses accepted.
+
+[ΓêÜ] Chrome - develop for the web [556ms]
+    ΓÇó Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[X] Visual Studio - develop Windows apps [553ms]
+    X Visual Studio not installed; this is necessary to develop Windows apps.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[ΓêÜ] Connected device (8 available) [954ms]
+    ΓÇó detours: (mobile)            ΓÇó detours:            ΓÇó unsupported    ΓÇó Android null (API null) (unsupported)
+    ΓÇó 75FCB330->758869D0: (mobile) ΓÇó 75FCB330->758869D0: ΓÇó unsupported    ΓÇó Android null (API null) (unsupported)
+    ΓÇó 75FCA8A0->758859B0: (mobile) ΓÇó 75FCA8A0->758859B0: ΓÇó unsupported    ΓÇó Android null (API null) (unsupported)
+    ΓÇó 75FCB370->75881360: (mobile) ΓÇó 75FCB370->75881360: ΓÇó unsupported    ΓÇó Android null (API null) (unsupported)
+    ΓÇó 7634EB30->7700A540: (mobile) ΓÇó 7634EB30->7700A540: ΓÇó unsupported    ΓÇó Android null (API null) (unsupported)
+    ΓÇó Windows (desktop)            ΓÇó windows             ΓÇó windows-x64    ΓÇó Microsoft Windows [Version 10.0.26200.7623]
+    ΓÇó Chrome (web)                 ΓÇó chrome              ΓÇó web-javascript ΓÇó Google Chrome 144.0.7559.60
+    ΓÇó Edge (web)                   ΓÇó edge                ΓÇó web-javascript ΓÇó Microsoft Edge 144.0.3719.82
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..7634D520..F62CD520]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       Looking for free region in 00080000..76340000 from 76330000:
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+        Try 76330000
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+        Try 6E330000
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+        Try 6E330000 => 6E330000..70DBFFFF  10000
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+        Allocated region 6E330000..6E33FFFF
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3300D8,7634D520)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7634D522 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3300DA,7634D522)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7634D523 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3300DB,7634D523)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7634D525 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76360530..F62E0530]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330120,76360530)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360532 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330122,76360532)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360533 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330123,76360533)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360535 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76360570..F62E0570]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330168,76360570)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360572 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33016A,76360572)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360573 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33016B,76360573)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360575 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76360550..F62E0550]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301B0,76360550)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360552 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301B2,76360552)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360553 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301B3,76360553)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76360555 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..75FC9040..F5F49040]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301F8,75FC9040)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FC9042 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301FA,75FC9042)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FC9043 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3301FB,75FC9043)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FC9045 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..75FF33C0..F5F733C0]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330240,75FF33C0)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FF33C2 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330242,75FF33C2)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FF33C3 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330243,75FF33C3)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75FF33C5 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..758869D0..F58069D0]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330288,758869D0)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 758869D5 (5 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..758859B0..F58059B0]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3302D0,758859B0)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 758859B5 (5 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..754E0960..F5460960]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330318,754E0960)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 754E0962 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33031A,754E0962)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 754E0963 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33031B,754E0963)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 754E0965 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..77899290..F7819290]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330360,77899290)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 77899295 (5 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76391480..F6311480]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303A8,76391480)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391482 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303AA,76391482)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391483 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303AB,76391483)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391485 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76391560..F6311560]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303F0,76391560)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391562 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303F2,76391562)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391563 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3303F3,76391563)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76391565 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..763620E0..F62E20E0]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330438,763620E0)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 763620E2 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33043A,763620E2)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 763620E3 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33043B,763620E3)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 763620E5 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76362100..F62E2100]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330480,76362100)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76362102 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330482,76362102)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76362103 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330483,76362103)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76362105 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76036280..F5FB6280]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3304C8,76036280)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76036282 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3304CA,76036282)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76036283 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3304CB,76036283)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76036285 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..75881360..F5801360]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330510,75881360)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 75881365 (5 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..7755B820..F74DB820]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330558,7755B820)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7755B822 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33055A,7755B822)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7755B823 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E33055B,7755B823)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7755B825 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..6DFBA060..EDF3A060]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305A0,6DFBA060)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 6DFBA062 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305A2,6DFBA062)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 6DFBA063 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305A3,6DFBA063)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 6DFBA065 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..7700A540..F6F8A540]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305E8,7700A540)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7700A542 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305EA,7700A542)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7700A543 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E3305EB,7700A543)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 7700A545 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+      [00080000..76361A10..F62E1A10]
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330630,76361A10)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76361A12 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330632,76361A12)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76361A13 (1 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction(6E330633,76361A13)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+    ! Unexpected failure parsing device information from adb output:
+       DetourCopyInstruction() = 76361A15 (2 bytes)
+      Please report a bug at https://github.com/flutter/flutter/issues.
+
+[ΓêÜ] Network resources [590ms]
+    ΓÇó All expected network resources are available.
+
+! Doctor found issues in 1 category.
