@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart'; // for kIsWeb
 import 'dart:ui';
 import 'package:remedibook/core/theme/remedi_theme.dart';
 import 'package:remedibook/features/discovery/presentation/screens/discovery_screen.dart';
@@ -80,7 +81,7 @@ class _CommandPaletteState extends State<CommandPalette> {
                     Expanded(
                       child: TextField(
                         controller: _controller,
-                        autofocus: true,
+                        autofocus: kIsWeb ? false : true, // Prevent focus crash on web
                         style: const TextStyle(fontSize: 24, color: RemediTheme.darkForest),
                         decoration: const InputDecoration(
                           hintText: 'Search symptoms...',

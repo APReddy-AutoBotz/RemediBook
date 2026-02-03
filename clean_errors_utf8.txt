@@ -1,0 +1,42 @@
+﻿  error - The named parameter 'remedyId' is required, but there's no corresponding argument - lib\features\artifact\domain\services\pdf_generator_service.dart:592:28 - missing_required_argument
+  error - The named parameter 'reviewDate' is required, but there's no corresponding argument - lib\features\artifact\domain\services\pdf_generator_service.dart:592:28 - missing_required_argument
+  error - The named parameter 'sourceCount' is required, but there's no corresponding argument - lib\features\artifact\domain\services\pdf_generator_service.dart:592:28 - missing_required_argument
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:75:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:118:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:123:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:137:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:153:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:161:21 - creation_with_non_type
+  error - Methods can't be invoked in constant expressions - lib\features\dashboard\presentation\screens\dashboard_screen.dart:173:19 - const_eval_method_invocation
+  error - The named parameter 'width' isn't defined - lib\features\dashboard\presentation\screens\dashboard_screen.dart:173:28 - undefined_named_parameter
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:184:21 - creation_with_non_type
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:200:15 - creation_with_non_type
+  error - The named parameter 'width' isn't defined - lib\features\dashboard\presentation\screens\dashboard_screen.dart:243:13 - undefined_named_parameter
+  error - The named parameter 'child' isn't defined - lib\features\dashboard\presentation\screens\dashboard_screen.dart:244:13 - undefined_named_parameter
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:283:17 - creation_with_non_type
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\dashboard\presentation\screens\dashboard_screen.dart:314:22 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\dashboard\presentation\screens\dashboard_screen.dart:314:22 - obsolete_colon_for_default_value
+  error - The default value of an optional parameter must be constant - lib\features\dashboard\presentation\screens\dashboard_screen.dart:314:24 - non_constant_default_value
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\dashboard\presentation\screens\dashboard_screen.dart:331:22 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\dashboard\presentation\screens\dashboard_screen.dart:331:22 - obsolete_colon_for_default_value
+  error - The default value of an optional parameter must be constant - lib\features\dashboard\presentation\screens\dashboard_screen.dart:331:24 - non_constant_default_value
+  error - The name 'SizedBox' isn't a class - lib\features\dashboard\presentation\screens\dashboard_screen.dart:343:29 - creation_with_non_type
+  error - A function body must be provided - lib\features\dashboard\presentation\screens\dashboard_screen.dart:353:16 - missing_function_body
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:353:16 - expected_class_member
+  error - Getters, setters and methods can't be declared to be 'const' - lib\features\dashboard\presentation\screens\dashboard_screen.dart:355:15 - const_method
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\features\dashboard\presentation\screens\dashboard_screen.dart:355:36 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\features\dashboard\presentation\screens\dashboard_screen.dart:355:36 - obsolete_colon_for_default_value
+  error - A function body must be provided - lib\features\dashboard\presentation\screens\dashboard_screen.dart:355:41 - missing_function_body
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:355:41 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:356:13 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:356:14 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:357:11 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:357:12 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:358:9 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:358:10 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:359:7 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:359:8 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:360:5 - expected_class_member
+  error - Expected a class member - lib\features\dashboard\presentation\screens\dashboard_screen.dart:360:6 - expected_class_member
+  error - Expected a method, getter, setter or operator declaration - lib\features\dashboard\presentation\screens\dashboard_screen.dart:412:1 - expected_executable
+  error - The getter 'conflicts' isn't defined for the type 'SearchResult' - lib\features\discovery\presentation\screens\inquiry_overlay.dart:477:54 - undefined_getter

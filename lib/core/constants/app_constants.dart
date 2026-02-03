@@ -12,6 +12,9 @@ class AssetPaths {
   static const String splashGif = 'assets/images/splash_logo_updated.gif.gif';
   static const String backgroundMotif = 'assets/images/background_motif.png';
   static const String gingerTulsiMacro = 'assets/images/ginger_tulsi_macro.png';
+
+  // Rive Assets (Optional)
+  static const String atmosphereRive = 'assets/rive/atmosphere.riv';
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -48,7 +51,7 @@ class AppStrings {
 // ═══════════════════════════════════════════════════════════════════════
 
 class AppDurations {
-  static const Duration splashDuration = Duration(seconds: 7); // Extended for complete GIF playback
+  static const Duration splashDuration = Duration(milliseconds: 3500); // Aligned with architecture v1.5.0
   static const Duration fadeTransition = Duration(milliseconds: 800);
   static const Duration shortAnimation = Duration(milliseconds: 300);
   static const Duration mediumAnimation = Duration(milliseconds: 500);

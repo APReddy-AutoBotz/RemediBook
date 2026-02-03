@@ -9,7 +9,10 @@ enum EvidenceLabel {
   traditional,
   
   /// Backed by peer-reviewed research and clinical studies
-  evidenceSupported;
+  evidenceSupported,
+  
+  /// General Guidance - Web Sourced (Tier 3: AI Grounding)
+  webSourced;
 
   /// Display name for UI
   String get displayName {
@@ -18,6 +21,8 @@ enum EvidenceLabel {
         return 'Traditional';
       case EvidenceLabel.evidenceSupported:
         return 'Evidence-Supported';
+      case EvidenceLabel.webSourced:
+        return 'General Guidance - Web Sourced';
     }
   }
 
@@ -28,6 +33,8 @@ enum EvidenceLabel {
         return 'history_edu';
       case EvidenceLabel.evidenceSupported:
         return 'verified';
+      case EvidenceLabel.webSourced:
+        return 'public';
     }
   }
 }

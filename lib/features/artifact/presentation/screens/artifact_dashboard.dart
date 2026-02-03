@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../../features/discovery/presentation/screens/discovery_screen.dart';
 import '../../../../core/theme/remedi_theme.dart';
 import '../../domain/models/artifact_model.dart';
 import '../../data/repositories/artifact_repository.dart';
@@ -333,25 +335,71 @@ class _ArtifactDashboardState extends State<ArtifactDashboard> {
       padding: const EdgeInsets.all(RemediTheme.spaceXL),
       child: Column(
         children: [
-          Icon(
-            Icons.auto_stories,
-            size: 80,
-            color: RemediTheme.mutedSage.withOpacity(0.3),
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: RemediTheme.warmLimestone,
+              shape: BoxShape.circle,
+              border: Border.all(color: RemediTheme.deepTeal.withOpacity(0.1), width: 2),
+              boxShadow: [
+                BoxShadow(
+                  color: RemediTheme.deepTeal.withOpacity(0.05),
+                  blurRadius: 20,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
+            child: Icon(
+              Icons.auto_stories,
+              size: 64,
+              color: RemediTheme.deepTeal.withOpacity(0.5),
+            ),
           ),
-          const SizedBox(height: RemediTheme.spaceMD),
+          const SizedBox(height: RemediTheme.spaceLG),
+          
           Text(
             'No Artifacts Yet',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: RemediTheme.charcoal.withOpacity(0.6),
-                ),
+            style: GoogleFonts.lora( // More premium font
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              color: RemediTheme.darkForest,
+            ),
           ),
-          const SizedBox(height: RemediTheme.spaceXS),
+          const SizedBox(height: RemediTheme.spaceSM),
+          
           Text(
-            'Generate your first wellness guide to start your collection',
+            'Generate your first wellness guide to start your collection. Your personalized guides will appear here.',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: RemediTheme.charcoal.withOpacity(0.5),
-                ),
+            style: GoogleFonts.inter(
+              fontSize: 14,
+              height: 1.5,
+              color: RemediTheme.charcoal.withOpacity(0.6),
+            ),
+          ),
+          
+          const SizedBox(height: 32),
+          
+          // Call to Action
+          ElevatedButton.icon(
+            onPressed: () {
+               // Navigation to Discovery
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DiscoveryScreen()),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: RemediTheme.deepTeal,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              elevation: 4,
+              shadowColor: RemediTheme.deepTeal.withOpacity(0.3),
+            ),
+            icon: const Icon(Icons.search, size: 20),
+            label: Text(
+              "Start Discovery",
+              style: GoogleFonts.inter(fontWeight: FontWeight.w600, letterSpacing: 0.5),
+            ),
           ),
         ],
       ),

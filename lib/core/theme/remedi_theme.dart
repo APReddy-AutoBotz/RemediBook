@@ -12,11 +12,21 @@ class RemediTheme {
   /// Primary Color: Deep Teal - Represents trust and wellness
   static const Color deepTeal = Color(0xFF1F4E5F);
   
-  /// Scaffold Background: Warm Limestone - Soft, natural base
+  /// Background: Cashmere - Main Lux Background
+  static const Color cashmere = Color(0xFFF4EDE3);
+
+  /// Surface: Warm Limestone - Secondary/Card Background
   static const Color warmLimestone = Color(0xFFF2F0E6);
   
   /// Accent: Muted Sage - Calming secondary color
   static const Color mutedSage = Color(0xFF8FA998);
+  
+  /// Action: Ember Gold - Primary highlight for "Quiet Luxury"
+  static const Color emberGold = Color(0xFFD4A373);
+  
+  /// Safety: Critical Red - For warnings and alerts
+  static const Color safetyCritical = Color(0xFF90353D);
+  static const Color garnet = safetyCritical;
   
   /// Text: Charcoal - Body text color
   static const Color charcoal = Color(0xFF2C2C2C);
@@ -50,13 +60,15 @@ class RemediTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: warmLimestone,
+      // Transparent to allow SanctuaryBackground to show through
+      scaffoldBackgroundColor: Colors.transparent,
       primaryColor: deepTeal,
       colorScheme: ColorScheme.fromSeed(
         seedColor: deepTeal,
         primary: deepTeal,
         secondary: mutedSage,
-        surface: Colors.white.withOpacity(0.5),
+        error: safetyCritical,
+        surface: warmLimestone.withOpacity(0.5),
         brightness: Brightness.light,
       ),
       
@@ -137,8 +149,8 @@ class RemediTheme {
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: deepTeal,
-          foregroundColor: warmLimestone,
+          backgroundColor: const Color(0xFFD4A373), // Ember Gold
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radiusButton),
           ),
@@ -147,8 +159,8 @@ class RemediTheme {
           shadowColor: Colors.transparent,
           textStyle: GoogleFonts.inter(
             fontSize: 16,
-            fontWeight: FontWeight.w600,
-            letterSpacing: 0.5,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 0.8,
           ),
         ),
       ),

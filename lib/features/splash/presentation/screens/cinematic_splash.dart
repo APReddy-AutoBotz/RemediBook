@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remedibook/core/theme/remedi_theme.dart';
+import 'package:remedibook/core/widgets/living_background.dart'; // Design Bible: Phase 1
 import 'package:remedibook/features/auth/presentation/screens/auth_screen.dart';
 
 class CinematicSplashScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class CinematicSplashScreen extends StatefulWidget {
 class _CinematicSplashScreenState extends State<CinematicSplashScreen> 
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<double> _rotationAnimation;
   late Animation<double> _fadeAnimation;
 
   @override
@@ -19,43 +21,39 @@ class _CinematicSplashScreenState extends State<CinematicSplashScreen>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 4000), // 4 seconds for full rotation
     );
     
-    _fadeAnimation = CurvedAnimation(
+    // Rotation animation - full 360 degrees (2 * pi radians)
+    _rotationAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0, // Full rotation (will be multiplied by 2*pi in the widget)
+    ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.easeIn,
-    );
+      curve: Curves.easeInOut,
+    ));
+    
+    // Fade animation
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: const Interval(0.0, 0.3, curve: Curves.easeIn),
+    ));
     
     _controller.forward();
 
-    // Navigate after 5 seconds
-    Future.delayed(const Duration(seconds: 5), () {
+    // Navigate after 4 seconds
+    Future.delayed(const Duration(milliseconds: 4000), () {
       if (mounted) {
-        _navigateToAuth();
+        _navigateToOnboarding();
       }
     });
   }
 
-  void _navigateToAuth() {
-    Navigator.pushReplacement(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const AuthScreen(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-            opacity: animation,
-            child: ScaleTransition(
-              scale: Tween<double>(begin: 0.95, end: 1.0).animate(
-                CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
-              ),
-              child: child,
-            ),
-          );
-        },
-        transitionDuration: const Duration(milliseconds: 1000),
-      ),
-    );
+  void _navigateToOnboarding() {
+    Navigator.pushReplacementNamed(context, '/onboarding');
   }
 
   @override
@@ -66,18 +64,36 @@ class _CinematicSplashScreenState extends State<CinematicSplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    // Design Bible: Phase 1 - Living Background applied to Entry screen
     return Scaffold(
-      backgroundColor: const Color(0xFF0A0F0D), // Very dark background
-      body: Center(
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: Image.asset(
-            'assets/images/splash_logo_updated.gif.gif',
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.8,
-            fit: BoxFit.contain,
+      body: Stack(
+        children: [
+          // Breathing background (replaces solid dark background)
+          const BreathingBackground(
+            intensity: 0.6, // Subtle for splash screen
+            enableGrain: true,
           ),
-        ),
+          
+          // Logo animation
+          Center(
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (context, child) {
+                return Opacity(
+                  opacity: _fadeAnimation.value,
+                  child: Transform.rotate(
+                    angle: _rotationAnimation.value * 2 * 3.14159, // Full 360° rotation
+                    child: Image.asset(
+                      'assets/images/splash_logo.png',
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

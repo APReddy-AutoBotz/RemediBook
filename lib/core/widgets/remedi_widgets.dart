@@ -242,6 +242,8 @@ class RemediEvidenceLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isWebSourced = label.contains('Web Sourced');
+    
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: RemediTheme.spaceSM,
@@ -250,22 +252,26 @@ class RemediEvidenceLabel extends StatelessWidget {
       decoration: BoxDecoration(
         color: isEvidenceSupported
             ? RemediTheme.deepTeal.withOpacity(0.05)
-            : RemediTheme.mutedSage.withOpacity(0.05),
+            : (isWebSourced ? Colors.blue.withOpacity(0.05) : RemediTheme.mutedSage.withOpacity(0.05)),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            isEvidenceSupported ? Icons.verified : Icons.history_edu,
+            isEvidenceSupported ? Icons.verified : (isWebSourced ? Icons.public : Icons.history_edu),
             size: 11,
-            color: isEvidenceSupported ? RemediTheme.deepTeal : RemediTheme.mutedSage,
+            color: isEvidenceSupported 
+                ? RemediTheme.deepTeal 
+                : (isWebSourced ? Colors.blue : RemediTheme.mutedSage),
           ),
           const SizedBox(width: 4),
           Text(
             label,
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: (isEvidenceSupported ? RemediTheme.deepTeal : RemediTheme.mutedSage).withOpacity(0.7),
+                  color: (isEvidenceSupported 
+                      ? RemediTheme.deepTeal 
+                      : (isWebSourced ? Colors.blue : RemediTheme.mutedSage)).withOpacity(0.7),
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0.5,

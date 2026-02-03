@@ -5,17 +5,36 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/theme/remedi_theme.dart';
 import '../../../../core/widgets/remedi_widgets.dart';
 import '../../domain/services/fulfillment_logic.dart';
+import '../../domain/models/fulfillment_models.dart';
+import '../../../../core/services/fulfillment_engine.dart';
+import '../../../../core/services/commerce_service.dart';
 import '../../../../core/models/user_profile.dart';
 import '../../../triage/domain/services/triage_service.dart';
 import '../../domain/models/remedy.dart';
 import '../../domain/models/evidence_ledger.dart';
+import 'package:google_fonts/google_fonts.dart';
+import './material_chip_list.dart';
 
 /// Fulfillment Stack Widget
 /// Pillars 3 & 4: UI Stack & Sovereign Fulfillment
-class FulfillmentStack extends StatelessWidget {
+/// Now with Interactive Pantry Check (The Pantry First Rule)
+class FulfillmentStack extends StatefulWidget {
   final FulfillmentData data;
 
   const FulfillmentStack({super.key, required this.data});
+
+  @override
+  State<FulfillmentStack> createState() => _FulfillmentStackState();
+}
+
+class _FulfillmentStackState extends State<FulfillmentStack> {
+  List<String> _inHouseItems = [];
+
+  void _onInventoryChanged(List<String> inHouseItems) {
+    setState(() {
+      _inHouseItems = inHouseItems;
+    });
+  }
 
   void _launchTimer(BuildContext context, int seconds) {
     HapticFeedback.mediumImpact();
@@ -43,6 +62,188 @@ class FulfillmentStack extends StatelessWidget {
     }
   }
 
+  void _handleBookConsultation(BuildContext context, EscalationCriteria escalation) {
+    HapticFeedback.mediumImpact();
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Icons.calendar_today_rounded, color: RemediTheme.deepTeal),
+            const SizedBox(width: 12),
+            const Text('Book Consultation'),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Instant slots available at:',
+              style: TextStyle(
+                color: RemediTheme.charcoal.withOpacity(0.7),
+                fontSize: 14,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              escalation.clinicName ?? 'Partner Hospital',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: RemediTheme.deepTeal.withOpacity(0.05),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                '📞 This feature will connect you to our partner clinics for immediate booking.',
+                style: TextStyle(fontSize: 13),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Booking feature coming soon for ${escalation.clinicName}'),
+                  backgroundColor: RemediTheme.deepTeal,
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: RemediTheme.deepTeal,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Proceed'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _handleGenerateGuide(BuildContext context, FulfillmentData data) {
+    HapticFeedback.heavyImpact();
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Icons.description_outlined, color: RemediTheme.deepTeal),
+            const SizedBox(width: 12),
+            const Text('Generate Wellness Guide'),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Your personalized wellness guide will include:',
+              style: TextStyle(
+                color: RemediTheme.charcoal.withOpacity(0.7),
+                fontSize: 14,
+              ),
+            ),
+            const SizedBox(height: 12),
+            _buildGuideFeature('Complete preparation protocol'),
+            _buildGuideFeature('Materials & procurement list'),
+            _buildGuideFeature('Traditional practice guidance'),
+            _buildGuideFeature('Escalation criteria & red flags'),
+            _buildGuideFeature('Evidence sources & citations'),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: const Color(0xFFF59E0B).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: const Color(0xFFF59E0B).withOpacity(0.3),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.info_outline, 
+                    color: const Color(0xFFF59E0B), 
+                    size: 20,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Guide ID: RB-PREMIER-${DateTime.now().millisecondsSinceEpoch}',
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Generating wellness guide for ${widget.data.remedyName}...'),
+                  backgroundColor: RemediTheme.deepTeal,
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: RemediTheme.deepTeal,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Generate PDF'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildGuideFeature(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          Icon(
+            Icons.check_circle,
+            size: 16,
+            color: RemediTheme.deepTeal,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 13),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SovereignProfile?>(
@@ -55,10 +256,10 @@ class FulfillmentStack extends StatelessWidget {
           // Mocking the Remedy object for conflict check as FulfillmentData doesn't have it directly
           final mockRemedy = Remedy(
             id: 'mock',
-            name: data.remedyName,
+            name: widget.data.remedyName,
             description: '',
-            ingredients: data.materials.map((m) => m.name).toList(),
-            instructions: data.prepSteps.map((s) => s.instruction).toList(),
+            ingredients: widget.data.materials.map((m) => m.name).toList(),
+            instructions: widget.data.prepSteps.map((s) => s.instruction).toList(),
             fibreToCarbRatio: 0.0,
             evidenceLedger: EvidenceLedger(
               remedyId: 'mock',
@@ -88,7 +289,7 @@ class FulfillmentStack extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 16),
                       child: SafetyTag(message: conflict!),
                     )
-                  else if (data.safetyWarning)
+                  else if (widget.data.safetyWarning)
                     PremiumAlertBanner(message: "Caution: Boiling water. Avoid scalds."),
                   
                   const SizedBox(height: RemediTheme.spaceMD),
@@ -96,44 +297,94 @@ class FulfillmentStack extends StatelessWidget {
                   // CARD 1: THE REMEDY (PREPARE & PROCURE)
                   _buildStoneCard(
                     context: context,
-                    title: "Active Healing: ${data.remedyName}",
+                    title: "Active Healing: ${widget.data.remedyName}",
                     children: [
                       const TrustStripBadges(),
                       const SizedBox(height: 24),
                       
+                      if (widget.data.vernacularName != null) ...[
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFD4A373).withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                widget.data.vernacularName!.toUpperCase(),
+                                style: GoogleFonts.inter(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w800,
+                                  color: const Color(0xFFD4A373),
+                                  letterSpacing: 1.2,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                widget.data.vernacularWisdom ?? "",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontStyle: FontStyle.italic,
+                                  color: RemediTheme.charcoal.withOpacity(0.6),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                      ],
+
                       _buildSubsectionTitle(context, "Preparation Protocol"),
                       const SizedBox(height: 12),
                       NumberedProtocolList(
-                        steps: data.prepSteps.map((s) => s.instruction).toList(),
-                        durations: data.prepSteps.map((s) => s.durationSeconds).toList(),
+                        steps: widget.data.prepSteps.map((s) => s.instruction).toList(),
+                        durations: widget.data.prepSteps.map((s) => s.durationSeconds).toList(),
                       ),
                       
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: RemediTheme.spaceSM),
-                        child: Divider(height: 1, color: Colors.black12),
-                      ),
-                      
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _buildSubsectionTitle(context, "Materials & Procurement"),
-                          Flexible(
-                            child: Text(
-                              "✅ Available • ⛔ Missing • 🔁 Substitute",
-                              textAlign: TextAlign.right,
-                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                fontSize: 8,
-                                color: RemediTheme.charcoal.withOpacity(0.4),
+                      // NULL INVENTORY GATE: Only show materials if remedy requires physical items
+                      if (widget.data.hasPhysicalMaterials) ...[
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: RemediTheme.spaceSM),
+                          child: Divider(height: 1, color: Colors.black12),
+                        ),
+                        
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _buildSubsectionTitle(context, "Materials & Procurement"),
+                            Flexible(
+                              child: Text(
+                                "🟢 In House • 🔴 Needed",
+                                textAlign: TextAlign.right,
+                                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                  fontSize: 8,
+                                  color: RemediTheme.charcoal.withOpacity(0.4),
+                                ),
                               ),
                             ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          "Tap items you already have at home",
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: RemediTheme.charcoal.withOpacity(0.5),
+                            fontStyle: FontStyle.italic,
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      _buildMaterialsGrid(data.materials),
-                      
-                      const SizedBox(height: RemediTheme.spaceSM),
-                      _buildPriceComparisonTile(context, data.priceComparison, data.materials, isDisabled),
+                        ),
+                        const SizedBox(height: 12),
+                        MaterialChipList(
+                          materials: widget.data.materials,
+                          onInventoryChanged: _onInventoryChanged,
+                        ),
+                        
+                        const SizedBox(height: RemediTheme.spaceSM),
+                        _buildPriceComparisonTile(context, widget.data.priceComparison, widget.data.materials, isDisabled),
+                      ],
                     ],
                   ),
                   
@@ -152,14 +403,14 @@ class FulfillmentStack extends StatelessWidget {
                               color: RemediTheme.deepTeal.withOpacity(0.05),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.self_improvement, color: RemediTheme.deepTeal, size: 20),
+                            child: Icon(widget.data.practice.icon, color: RemediTheme.deepTeal, size: 20),
                           ),
                           const SizedBox(width: 12),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                data.practice.title,
+                                widget.data.practice.title,
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: RemediTheme.darkForest,
                                   fontWeight: FontWeight.w600,
@@ -177,7 +428,7 @@ class FulfillmentStack extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      ...data.practice.howTo.map((step) => Padding(
+                      ...widget.data.practice.howTo.map((step) => Padding(
                         padding: const EdgeInsets.only(bottom: 8),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,15 +458,46 @@ class FulfillmentStack extends StatelessWidget {
                     context: context,
                     title: "When to seek care",
                     children: [
-                      _buildEscalationBlock(data.escalation),
+                      _buildEscalationBlock(widget.data.escalation),
                       const SizedBox(height: 24),
+                      if (widget.data.escalation.isBookingAvailable) ...[
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: RemediTheme.deepTeal.withOpacity(0.05),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: RemediTheme.deepTeal.withOpacity(0.1)),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "CLINICAL ESCALATION READY",
+                                style: GoogleFonts.inter(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w800,
+                                  color: RemediTheme.deepTeal,
+                                  letterSpacing: 1,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                "Instant slots available at ${widget.data.escalation.clinicName ?? 'Partner Hospital'}.",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: RemediTheme.charcoal.withOpacity(0.7),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
                       RemediButton(
-                        label: "Find Care Nearby",
-                        icon: Icons.map_outlined,
+                        label: widget.data.escalation.isBookingAvailable ? "Book Urgent Consultation" : "Find Care Nearby",
+                        icon: widget.data.escalation.isBookingAvailable ? Icons.calendar_today_rounded : Icons.map_outlined,
                         isFullWidth: true,
-                        onPressed: () {
-                          HapticFeedback.mediumImpact();
-                        },
+                        onPressed: () => _handleBookConsultation(context, widget.data.escalation),
                       ),
                     ],
                   ),
@@ -247,9 +529,7 @@ class FulfillmentStack extends StatelessWidget {
                 child: RemediButton(
                   label: "Generate Wellness Guide",
                   isFullWidth: true,
-                  onPressed: isDisabled ? null : () {
-                    HapticFeedback.heavyImpact();
-                  },
+                  onPressed: isDisabled ? null : () => _handleGenerateGuide(context, widget.data),
                 ),
               ),
             ),
@@ -430,7 +710,70 @@ class FulfillmentStack extends StatelessWidget {
   }
 
   Widget _buildPriceComparisonTile(BuildContext context, CommerceComparison price, List<IngredientStatus> materials, bool isDisabled) {
-    final missingIngredients = materials.where((m) => !m.inStock).map((m) => m.name).join(", ");
+    // PANTRY FIRST RULE: Calculate needed items and pricing
+    final neededItems = CommerceService.getNeededItems(
+      allMaterials: materials,
+      inHouseItems: _inHouseItems,
+    );
+    
+    final hasAllItems = CommerceService.hasAllItemsInHouse(
+      allMaterials: materials,
+      inHouseItems: _inHouseItems,
+    );
+    
+    // Dynamic pricing based on needed items only
+    final zeptoNeededPrice = CommerceService.calculateNeededPrice(
+      allMaterials: materials,
+      inHouseItems: _inHouseItems,
+      basePrice: price.zeptoPrice,
+    );
+    
+    final blinkitNeededPrice = CommerceService.calculateNeededPrice(
+      allMaterials: materials,
+      inHouseItems: _inHouseItems,
+      basePrice: price.blinkitPrice,
+    );
+
+    // EMPTY STATE: All items in house
+    if (hasAllItems) {
+      return Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.green.shade50,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.green.shade200),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.check_circle, color: Colors.green.shade700, size: 24),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "You have everything!",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.green.shade900,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    "Start Preparation →",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.green.shade700,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return Container(
       decoration: RemediDecorations.glass(
@@ -439,15 +782,15 @@ class FulfillmentStack extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _buildVendorRow(context, "Zepto", price.zeptoTime, price.zeptoPrice, missingIngredients, isDisabled),
+          _buildVendorRow(context, "Zepto", price.zeptoTime, zeptoNeededPrice, neededItems, isDisabled),
           const Divider(height: 1, indent: 16, endIndent: 16, color: Colors.black12),
-          _buildVendorRow(context, "Blinkit", price.blinkitTime, price.blinkitPrice, missingIngredients, isDisabled),
+          _buildVendorRow(context, "Blinkit", price.blinkitTime, blinkitNeededPrice, neededItems, isDisabled),
         ],
       ),
     );
   }
 
-  Widget _buildVendorRow(BuildContext context, String vendor, String eta, double price, String query, bool isDisabled) {
+  Widget _buildVendorRow(BuildContext context, String vendor, String eta, double price, List<IngredientStatus> neededItems, bool isDisabled) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
@@ -459,7 +802,17 @@ class FulfillmentStack extends StatelessWidget {
           Text("₹${price.toInt()}", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
           const SizedBox(width: 16),
           InkWell(
-            onTap: isDisabled ? null : () => _launchCommerce(context, vendor, query),
+            onTap: isDisabled ? null : () async {
+              final success = await CommerceService.launchCommerceApp(
+                provider: vendor,
+                neededItems: neededItems,
+              );
+              if (!success && context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Could not launch $vendor')),
+                );
+              }
+            },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(

@@ -1,8 +1,10 @@
+import '../../../triage/domain/services/triage_service.dart';
+import '../../../../core/models/user_profile.dart';
 import '../models/remedy.dart';
 import '../models/evidence_ledger.dart';
-import '../../data/expert_vault_loader.dart' as legacy;
 import '../../../../core/services/vault_service.dart';
 import '../../../../core/services/ai_search_service.dart';
+import '../models/fulfillment_models.dart';
 
 /// Evidence Label with PhysicianVerified tier
 enum EvidenceTier {
@@ -17,55 +19,102 @@ class SearchResult {
   final EvidenceTier tier;
   final String? physicianName;
   final String? warningMessage;
+  final Map<String, String>? conflicts;
 
   const SearchResult({
     required this.remedies,
     required this.tier,
     this.physicianName,
     this.warningMessage,
+    this.conflicts,
   });
 
   bool get isPhysicianVerified => tier == EvidenceTier.physicianVerified;
   bool get hasWarning => warningMessage != null;
 }
 
-/// Search Service - Vault-First Hierarchy
-/// Step 1: Vault Check (PhysicianVerified)
-/// Step 2: Supplementary Fetch (Evidence Ledger)
-/// Step 3: Fallback (Traditional Archive with Soft Amber)
 class SearchService {
   /// Search with Vault-First logic
-  static Future<SearchResult> search(String query) async {
-    // STEP 1: Vault Check (Tier 1: Expert Vault)
+  static Future<SearchResult> search(String query, {SovereignProfile? profile}) async {
+    // STEP 1: Triage Interceptor (Safety Gate)
+    // CRITICAL: Check for Red/Amber flags before any vault lookup
+    final triageResult = TriageInterceptor.scan(query);
+    
+    // If Emergency (Hard Red), stop immediately
+    if (triageResult.isEmergency) {
+      return SearchResult(
+        remedies: [], // No remedies for emergencies
+        tier: EvidenceTier.traditional,
+        warningMessage: triageResult.message, // "Emergency situation detected..."
+        // UI layer should check for specific warning text or we can add a flag later
+      );
+    }
+
+    // STEP 2: Vault Check (Tier 1: Expert Vault)
     final vaultEntry = await VaultService.lookup(query);
     
+    List<Remedy> remedies = [];
+    EvidenceTier tier = EvidenceTier.traditional;
+    String? physicianName;
+    String? warningMessage;
+
     if (vaultEntry != null) {
       final physician = VaultService.getPhysician(vaultEntry.physicianId);
-      final remedy = _convertVaultEntryToRemedy(vaultEntry);
+      remedies = [_convertVaultEntryToRemedy(vaultEntry)];
+      tier = EvidenceTier.physicianVerified;
+      physicianName = physician?.name;
       
-      return SearchResult(
-        remedies: [remedy],
-        tier: EvidenceTier.physicianVerified,
-        physicianName: physician?.name,
-      );
+      // If Caution (Soft Amber), prepend warning
+      if (triageResult.isCaution) {
+        warningMessage = triageResult.message;
+      }
+    } else {
+      // STEP 3: Fallback to Traditional Archive (Tier 2/3: AI/Web Sourced)
+      // Now uses dynamic Gemini 3 API via AiSearchService
+      final archiveResults = await AiSearchService.fetch(query);
+      remedies = archiveResults;
+      
+      if (archiveResults.isNotEmpty) {
+        // Check if truly web sourced or hardcoded fallback
+        final hasWebSourced = archiveResults.any((r) => r.evidenceLedger.label == EvidenceLabel.webSourced);
+        
+        if (hasWebSourced) {
+          warningMessage = "Generative AI Guidance: Verified against general safety protocols, but not clinically vetted. Use with discretion.";
+        } else {
+          warningMessage = "Ailment not in core vault. Suggestions sourced from Traditional Archive.";
+        }
+        
+        // Add triage caution if present
+        if (triageResult.isCaution) {
+           warningMessage = "${triageResult.message}\n\n$warningMessage";
+        }
+      } else {
+        warningMessage = 'No verified remedies found for this query. Please consult a professional.';
+        if (triageResult.isCaution) {
+           warningMessage = "${triageResult.message}\n\n$warningMessage";
+        }
+      }
+    }
+
+    // Calculate Conflicts (Safety Twin)
+    Map<String, String>? conflicts;
+    if (profile != null && remedies.isNotEmpty) {
+      conflicts = {};
+      for (final remedy in remedies) {
+        final conflict = TriageInterceptor.checkProfileConflicts(remedy, profile);
+        if (conflict != null) {
+          conflicts[remedy.id] = conflict;
+        }
+      }
+      if (conflicts.isEmpty) conflicts = null;
     }
     
-    // STEP 2: Fallback to Traditional Archive (Tier 3: AI/Web Sourced)
-    final archiveResults = await AiSearchService.fetch(query);
-    
-    if (archiveResults.isNotEmpty) {
-      return SearchResult(
-        remedies: archiveResults,
-        tier: EvidenceTier.traditional,
-        warningMessage: "Ailment not in core vault. Suggestions sourced from Traditional Archive (Evidence-Led).",
-      );
-    }
-    
-    // FINAL FALLBACK: No results
-    return const SearchResult(
-      remedies: [],
-      tier: EvidenceTier.traditional,
-      warningMessage: 'No verified remedies found for this query. Please consult a professional.',
+    return SearchResult(
+      remedies: remedies,
+      tier: tier,
+      physicianName: physicianName,
+      warningMessage: warningMessage,
+      conflicts: conflicts,
     );
   }
 
@@ -111,6 +160,13 @@ class SearchService {
       evidenceLedger: evidenceLedger,
       symptoms: [entry.name.toLowerCase()],
       category: entry.remedy,
+      escalation: EscalationCriteria(
+        hourThreshold: 48,
+        guidance: "Consult medical professional if symptoms persist beyond 48 hours or worsen.",
+        redFlags: entry.contraindications.map((c) => c.toUpperCase()).toList(),
+        isBookingAvailable: true, // Force enabled for demo
+        clinicName: "Apollo Partner Clinics",
+      ),
     );
   }
 

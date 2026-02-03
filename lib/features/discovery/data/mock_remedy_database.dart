@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import '../domain/models/remedy.dart';
 import '../domain/models/evidence_ledger.dart';
+import '../domain/models/fulfillment_models.dart';
 
 /// Mock Remedy Database
 /// 3 curated remedies aligned with Siridhanya Logic
@@ -24,6 +26,14 @@ class MockRemedyDatabase {
         'Strain into a cup',
         'Add honey if desired',
         'Drink warm, 2-3 times daily',
+      ],
+      prepSteps: [
+        PrepStep('Bring 2 cups of filtered water to a rolling boil', durationSeconds: 180),
+        PrepStep('Add freshly sliced ginger and tulsi leaves to the boiling water'),
+        PrepStep('Reduce heat and simmer gently to extract medicinal compounds', durationSeconds: 600),
+        PrepStep('Strain the tea into your favorite cup, discarding solids'),
+        PrepStep('Allow to cool to warm (not hot) before adding honey to preserve enzymes'),
+        PrepStep('Drink slowly, 2-3 times daily for optimal benefit'),
       ],
       fibreToCarbRatio: 0.15, // Low carb, minimal fiber
       evidenceLedger: EvidenceLedger(
@@ -65,22 +75,30 @@ class MockRemedyDatabase {
     Remedy(
       id: 'remedy_002',
       name: 'Kodo Millet Porridge',
-      description: 'Kodo millet (Siridhanya) porridge for metabolic support and sustained energy. High fiber-to-carb ratio makes it ideal for blood sugar management.',
+      description: 'Expert-verified remedy for Metabolic Health & Sustained Energy. Stabilizes blood sugar and fights fatigue.',
       symptoms: ['diabetes', 'metabolic', 'energy', 'digestion', 'weight management'],
       ingredients: [
         '1/2 cup kodo millet',
         '2 cups water',
         '1/4 teaspoon turmeric',
-        'Pinch of salt',
-        '1 teaspoon ghee',
+        '1 tsp ghee',
       ],
       instructions: [
-        'Rinse kodo millet thoroughly',
-        'Dry roast millet for 2-3 minutes',
+        'Soak kodo millet for 4-6 hours for enzyme activation',
+        'Rinse thoroughly and dry roast for 2-3 minutes until fragrant',
         'Add water and bring to boil',
-        'Add turmeric and salt',
-        'Simmer for 20-25 minutes until soft',
-        'Add ghee and serve warm',
+        'Add turmeric and simmer for 20-25 minutes until soft',
+        'Stir in ghee and serve warm',
+        'Once daily, preferably breakfast',
+      ],
+      prepSteps: [
+        PrepStep('Soak 1/2 cup kodo millet in water for 4-6 hours to activate enzymes', durationSeconds: 14400),
+        PrepStep('Drain and rinse thoroughly under running water'),
+        PrepStep('Dry roast millet in a pan for 2-3 minutes until fragrant', durationSeconds: 150),
+        PrepStep('Add 2 cups water and bring to a rolling boil', durationSeconds: 180),
+        PrepStep('Add turmeric, reduce heat, and simmer until soft and fluffy', durationSeconds: 1500),
+        PrepStep('Stir in 1 tsp ghee for lubrication and enhanced absorption'),
+        PrepStep('Serve warm as breakfast (once daily) for sustained energy and blood sugar stability'),
       ],
       fibreToCarbRatio: 0.42, // High fiber-to-carb ratio (Siridhanya Logic)
       evidenceLedger: EvidenceLedger(
@@ -107,15 +125,37 @@ class MockRemedyDatabase {
           ),
         ],
       ),
-      category: 'Metabolic Support',
+      category: 'Kodo Millet Porridge',
+      practice: PracticeTechnique(
+        title: 'Mandukasana (Frog Pose)',
+        icon: Icons.self_improvement_outlined,
+        howTo: [
+          'Sit in Vajrasana (kneeling position)',
+          'Place fists near navel, press inward gently',
+          'Bend forward slowly, hold for 30 seconds',
+          'Repeat 3 times for pancreatic activation',
+        ],
+      ),
+      escalation: EscalationCriteria(
+        hourThreshold: 24,
+        guidance: 'Seek immediate care for blurred vision, extreme thirst, or if fasting glucose exceeds 250mg/dL despite dietary management.',
+        redFlags: [
+          'Fasting Glucose > 250mg/dL',
+          'Persistent blurred vision or eye pain',
+          'Sudden fatigue or confusion',
+          'Excessive thirst despite hydration',
+        ],
+        isBookingAvailable: true,
+        clinicName: 'Apollo Sugar Clinics',
+      ),
     ),
 
     // 3. Foxtail Millet Salad (Traditional - Respiratory Support)
     Remedy(
       id: 'remedy_003',
       name: 'Foxtail Millet Salad',
-      description: 'Cooling foxtail millet salad with vegetables for respiratory wellness and inflammation reduction. Light and nourishing.',
-      symptoms: ['inflammation', 'respiratory', 'heat', 'digestion'],
+      description: 'Cooling foxtail millet salad for Digestion and Acidity Relief. Reduces body heat and calming inflammation.',
+      symptoms: ['inflammation', 'respiratory', 'heat', 'digestion', 'acidity', 'heartburn'],
       ingredients: [
         '1 cup cooked foxtail millet',
         '1/2 cucumber, diced',
@@ -132,6 +172,15 @@ class MockRemedyDatabase {
         'Mix all ingredients in a bowl',
         'Add lemon juice, olive oil, salt, and pepper',
         'Toss well and serve chilled',
+      ],
+      prepSteps: [
+        PrepStep('Cook foxtail millet and allow to cool completely', durationSeconds: 900),
+        PrepStep('Dice cucumber and tomato into small cubes'),
+        PrepStep('Finely chop fresh coriander leaves'),
+        PrepStep('Combine millet and vegetables in a mixing bowl'),
+        PrepStep('Whisk lemon juice, olive oil, salt, and pepper nearby'),
+        PrepStep('Pour dressing over salad and toss to coat evenly'),
+        PrepStep('Serve chilled for maximum cooling effect on the gut'),
       ],
       fibreToCarbRatio: 0.38, // Good fiber-to-carb ratio
       evidenceLedger: EvidenceLedger(
@@ -158,7 +207,7 @@ class MockRemedyDatabase {
           ),
         ],
       ),
-      category: 'Respiratory Support',
+      category: 'Digestive & Respiratory Health',
     ),
   ];
 

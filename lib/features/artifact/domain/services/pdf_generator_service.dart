@@ -20,7 +20,7 @@ class PDFGeneratorService {
     final now = DateTime.now();
     final year = now.year;
     final sequence = now.millisecondsSinceEpoch % 10000;
-    return 'RB-$year-${sequence.toString().padLeft(4, '0')}';
+    return 'RB-PREMIER-$year-${sequence.toString().padLeft(4, '0')}';
   }
 
   // ═══════════════════════════════════════════════════════════════════════
@@ -196,8 +196,11 @@ class PDFGeneratorService {
         ),
 
         // Digital Wax Seal Watermark
-        pw.SizedBox(height: 24),
-        _buildWaxSeal(interFont),
+        pw.SizedBox(height: 48),
+        pw.Align(
+          alignment: pw.Alignment.centerRight,
+          child: _buildWaxSeal(interFont),
+        ),
       ],
     );
   }
@@ -504,37 +507,65 @@ class PDFGeneratorService {
 
   pw.Widget _buildWaxSeal(pw.Font font) {
     return pw.Container(
-      width: 80,
-      height: 80,
+      width: 90,
+      height: 90,
+      padding: const pw.EdgeInsets.all(4),
       decoration: pw.BoxDecoration(
         shape: pw.BoxShape.circle,
         border: pw.Border.all(
-          color: PdfColor.fromHex('#1F4E5F'),
-          width: 2,
+          color: PdfColor.fromHex('#D4A373'),
+          width: 3,
         ),
       ),
-      child: pw.Center(
-        child: pw.Column(
-          mainAxisAlignment: pw.MainAxisAlignment.center,
-          children: [
-            pw.Text(
-              'RB',
-              style: pw.TextStyle(
-                font: font,
-                fontSize: 20,
-                color: PdfColor.fromHex('#1F4E5F'),
+      child: pw.Container(
+        decoration: pw.BoxDecoration(
+          shape: pw.BoxShape.circle,
+          border: pw.Border.all(
+            color: PdfColor.fromHex('#D4A373'),
+            width: 1,
+          ),
+        ),
+        child: pw.Center(
+          child: pw.Column(
+            mainAxisAlignment: pw.MainAxisAlignment.center,
+            children: [
+              pw.Text(
+                'RB',
+                style: pw.TextStyle(
+                  font: font,
+                  fontSize: 22,
+                  fontWeight: pw.FontWeight.bold,
+                  color: PdfColor.fromHex('#D4A373'),
+                ),
               ),
-            ),
-            pw.Text(
-              'VERIFIED',
-              style: pw.TextStyle(
-                font: font,
-                fontSize: 6,
-                color: PdfColor.fromHex('#1F4E5F'),
-                letterSpacing: 1.0,
+              pw.SizedBox(height: 2),
+              pw.Text(
+                'PREMIER',
+                style: pw.TextStyle(
+                  font: font,
+                  fontSize: 8,
+                  color: PdfColor.fromHex('#D4A373'),
+                  letterSpacing: 2.0,
+                ),
               ),
-            ),
-          ],
+              pw.SizedBox(height: 2),
+              pw.Container(
+                height: 0.5,
+                width: 30,
+                color: PdfColor.fromHex('#D4A373'),
+              ),
+              pw.SizedBox(height: 2),
+              pw.Text(
+                'VERIFIED',
+                style: pw.TextStyle(
+                  font: font,
+                  fontSize: 6,
+                  color: PdfColor.fromHex('#D4A373'),
+                  letterSpacing: 1.0,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -559,9 +590,12 @@ class PDFGeneratorService {
 
     // Create evidence ledger
     final evidenceLedger = EvidenceLedger(
+      remedyId: 'RB-$title',
       label: evidenceSources.length > 2
           ? EvidenceLabel.evidenceSupported
           : EvidenceLabel.traditional,
+      reviewDate: DateTime.now(),
+      sourceCount: evidenceSources.length,
       primarySources: evidenceSources,
     );
 

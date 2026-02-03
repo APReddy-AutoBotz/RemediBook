@@ -1,0 +1,39 @@
+﻿
+  error - Can't have 
+modifier 'static' 
+here - lib\features\d
+iscovery\domain\servi
+ces\search_service.da
+rt:40:3 - 
+extraneous_modifier
+  error - Can't have 
+modifier 'static' 
+here - lib\features\d
+iscovery\domain\servi
+ces\search_service.da
+rt:88:3 - 
+extraneous_modifier
+  error - Can't have 
+modifier 'static' 
+here - lib\features\d
+iscovery\domain\servi
+ces\search_service.da
+rt:133:3 - 
+extraneous_modifier
+  error - Expected a 
+method, getter, 
+setter or operator 
+declaration - lib\fea
+tures\discovery\domai
+n\services\search_ser
+vice.dart:137:1 - 
+expected_executable
+  error - Undefined 
+name 'SearchService' 
+- lib\features\discov
+ery\presentation\scre
+ens\inquiry_overlay.d
+art:108:26 - 
+undefined_identifier
+
+

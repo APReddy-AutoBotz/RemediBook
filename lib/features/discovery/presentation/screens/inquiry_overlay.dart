@@ -3,10 +3,17 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/remedi_theme.dart';
 import '../../domain/services/search_service.dart';
 import '../../domain/models/remedy.dart';
+import '../../domain/models/evidence_ledger.dart';
 import '../widgets/remedy_card.dart';
 import '../../../../core/widgets/remedi_widgets.dart';
+import '../../../../core/widgets/sanctuary_glass_card.dart'; // Design Bible: Phase 2
+import 'remedy_detail_screen.dart'; // Premium integration - RE-ENABLED
 import '../../domain/services/fulfillment_logic.dart';
+import '../../domain/models/fulfillment_models.dart';
 import '../widgets/fulfillment_stack.dart';
+import '../../../../core/models/user_profile.dart';
+import '../../domain/safety_interceptor.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Inquiry Overlay - Vault-First Search
 /// Implements three-tier search hierarchy
@@ -23,9 +30,17 @@ class _InquiryOverlayState extends State<InquiryOverlay>
   late Animation<double> _fadeAnimation;
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocus = FocusNode();
+  
   SearchResult? _searchResult;
   bool _hasSearched = false;
   bool _isLoading = false;
+  
+  // Conversational Triage State
+  String? _clarifyingQuestion;
+  bool _isAwaitingClarification = false;
+  SovereignProfile? _userProfile;
+
+  // Fulfillment State
   FulfillmentData? _activeFulfillment;
   String? _fulfillingRemedyId;
 
@@ -41,6 +56,11 @@ class _InquiryOverlayState extends State<InquiryOverlay>
       curve: Curves.easeOut,
     );
     _controller.forward();
+    _loadProfile();
+  }
+
+  Future<void> _loadProfile() async {
+    _userProfile = await SecureProfileStorage.getProfile();
   }
 
   @override
@@ -64,32 +84,42 @@ class _InquiryOverlayState extends State<InquiryOverlay>
 
     setState(() {
       _isLoading = true;
+      _clarifyingQuestion = null;
+      _isAwaitingClarification = false;
     });
 
+    // Hard Red Interceptor check
+    if (SafetyInterceptor.isEmergency(query)) {
+      SafetyInterceptor.triggerRedAlert(context);
+      setState(() => _isLoading = false);
+      return;
+    }
+
+    // Gemini 3 Reasoning: Conversational Triage
+    // Simulation: Asking clarifying questions based on profile
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    if (query.toLowerCase().contains('cough') && !_isAwaitingClarification) {
+      setState(() {
+        _clarifyingQuestion = "Is it a dry cough or accompanied by congestion? This helps me align with your Hyderabad heritage remedies.";
+        _isAwaitingClarification = true;
+        _isLoading = false;
+      });
+      return;
+    }
+
     // Vault-First Search Logic
-    final result = await SearchService.search(query);
+    final result = await SearchService.search(query, profile: _userProfile);
 
     setState(() {
       _searchResult = result;
       _hasSearched = true;
       _isLoading = false;
-      _activeFulfillment = null;
-      _fulfillingRemedyId = null;
     });
   }
 
-  Future<void> _showFulfillment(Remedy remedy) async {
-    setState(() {
-      _isLoading = true;
-      _fulfillingRemedyId = remedy.id;
-    });
-
-    final data = await FulfillmentService.getFulfillmentData(remedy.id, remedy.name);
-
-    setState(() {
-      _activeFulfillment = data;
-      _isLoading = false;
-    });
+  void _submitClarification(String answer) {
+    _performSearch("${_searchController.text} ($answer)");
   }
 
   @override
@@ -224,20 +254,24 @@ class _InquiryOverlayState extends State<InquiryOverlay>
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: RemediTheme.spaceMD),
                         child: PremiumAlertBanner(
-                          message: "Traditional Archive active. Suggestions sourced from AI/Web evidence.",
+                          message: _searchResult!.remedies.any((r) => r.evidenceLedger.label == EvidenceLabel.webSourced)
+                              ? "General Guidance - Web Sourced active."
+                              : "Traditional Archive active. Suggestions sourced from AI/Web evidence.",
                           icon: Icons.auto_awesome_outlined,
                         ),
                       ),
 
                     const SizedBox(height: RemediTheme.spaceSM),
 
-                    // Results or Guidance
+                    // Results, Clarification, or Guidance
                     Expanded(
                       child: _activeFulfillment != null
                           ? FulfillmentStack(data: _activeFulfillment!)
-                          : _hasSearched
-                              ? _buildSearchResults()
-                              : _buildGuidanceContent(),
+                          : _isAwaitingClarification
+                              ? _buildClarificationUI()
+                              : _hasSearched
+                                  ? _buildSearchResults()
+                                  : _buildGuidanceContent(),
                     ),
                   ],
                   ),
@@ -256,12 +290,9 @@ class _InquiryOverlayState extends State<InquiryOverlay>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Curated Mode Info Card
-          Container(
+          // Curated Mode Info Card with Glassmorphism
+          SanctuaryGlassCard(
             padding: const EdgeInsets.all(RemediTheme.spaceMD),
-            decoration: RemediDecorations.glass(
-              borderRadius: RemediTheme.radiusGlass,
-            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -421,7 +452,14 @@ class _InquiryOverlayState extends State<InquiryOverlay>
       child: Stack(
         children: [
           InkWell(
-            onTap: () => _showFulfillment(remedy),
+            onTap: () {
+              // Navigate to premium remedy detail screen
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => RemedyDetailScreen(remedy: remedy),
+                ),
+              );
+            },
             borderRadius: BorderRadius.circular(RemediTheme.radiusStone),
             child: RemedyCard(
               title: remedy.name,
@@ -445,6 +483,36 @@ class _InquiryOverlayState extends State<InquiryOverlay>
               ),
             ),
           
+          // Safety Twin: Conflict Alerts
+          if (_userProfile != null && _searchResult?.conflicts?.containsKey(remedy.id) == true)
+            Positioned(
+              top: 12,
+              left: 12,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE63946).withOpacity(0.9),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.warning_amber_rounded, color: Colors.white, size: 12),
+                    const SizedBox(width: 4),
+                    Text(
+                      'SAFETY CONFLICT',
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 8,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
           // Gold Seal for PhysicianVerified
           if (isPhysicianVerified)
             Positioned(
@@ -456,36 +524,37 @@ class _InquiryOverlayState extends State<InquiryOverlay>
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
-                      Colors.amber.shade600,
-                      Colors.amber.shade400,
+                      Color(0xFFD4A373),
+                      Color(0xFFFAEDCD),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.amber.withOpacity(0.3),
+                      color: const Color(0xFFD4A373).withOpacity(0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
                   ],
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
                       Icons.verified,
-                      color: Colors.white,
+                      color: RemediTheme.deepTeal,
                       size: 14,
                     ),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4),
                     Text(
-                      'Physician Verified',
+                      'PHYSICIAN VERIFIED',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
+                        color: RemediTheme.deepTeal,
+                        fontSize: 9,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0.5,
                       ),
                     ),
                   ],
@@ -495,5 +564,95 @@ class _InquiryOverlayState extends State<InquiryOverlay>
         ],
       ),
     );
+  }
+
+  Widget _buildClarificationUI() {
+    return Padding(
+      padding: const EdgeInsets.all(RemediTheme.spaceMD),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SanctuaryGlassCard(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.auto_awesome_rounded,
+                  color: Color(0xFFD4A373),
+                  size: 32,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'HEALING GUIDE',
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 2,
+                    color: const Color(0xFFD4A373),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  _clarifyingQuestion ?? "Thinking...",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 32),
+          Row(
+            children: [
+              Expanded(
+                child: RemediButton(
+                  label: 'DRY COUGH',
+                  onPressed: () => _submitClarification('Dry'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: RemediButton(
+                  label: 'CONGESTED',
+                  onPressed: () => _submitClarification('Congested'),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          TextButton(
+            onPressed: () => _performSearch(_searchController.text),
+            child: Text(
+              'SKIP CLARIFICATION',
+              style: TextStyle(
+                color: RemediTheme.charcoal.withOpacity(0.4),
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.2,
+                fontSize: 11,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _showFulfillment(Remedy remedy) async {
+    setState(() {
+      _isLoading = true;
+      _fulfillingRemedyId = remedy.id;
+    });
+
+    final data = await FulfillmentService.getFulfillmentData(
+      remedy.id,
+      remedy.name,
+      remedy: remedy,
+    );
+
+    setState(() {
+      _activeFulfillment = data;
+      _isLoading = false;
+    });
   }
 }

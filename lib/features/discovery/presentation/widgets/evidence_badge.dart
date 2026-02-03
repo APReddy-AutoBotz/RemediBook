@@ -17,19 +17,20 @@ class RemediEvidenceBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isEvidenceSupported = label == EvidenceLabel.evidenceSupported;
+    final isWebSourced = label == EvidenceLabel.webSourced;
     
     // Clinical Calm colors - muted tones
     final backgroundColor = isEvidenceSupported
         ? RemediTheme.deepTeal.withOpacity(0.08)
-        : RemediTheme.mutedSage.withOpacity(0.08);
+        : (isWebSourced ? Colors.blue.withOpacity(0.08) : RemediTheme.mutedSage.withOpacity(0.08));
     
     final borderColor = isEvidenceSupported
         ? RemediTheme.deepTeal.withOpacity(0.25)
-        : RemediTheme.mutedSage.withOpacity(0.25);
+        : (isWebSourced ? Colors.blue.withOpacity(0.25) : RemediTheme.mutedSage.withOpacity(0.25));
     
     final textColor = isEvidenceSupported
         ? RemediTheme.deepTeal
-        : RemediTheme.mutedSage;
+        : (isWebSourced ? Colors.blue : RemediTheme.mutedSage);
 
     return Container(
       padding: EdgeInsets.symmetric(
@@ -48,7 +49,7 @@ class RemediEvidenceBadge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            isEvidenceSupported ? Icons.verified : Icons.history_edu,
+            isEvidenceSupported ? Icons.verified : (isWebSourced ? Icons.public : Icons.history_edu),
             size: isCompact ? 12 : 14,
             color: textColor,
           ),

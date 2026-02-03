@@ -1,0 +1,1205 @@
+﻿Launching lib\main.dart on Chrome in debug mode...
+Waiting for connection from debug service on Chrome...          
+flutter : lib/feature
+s/dashboard/presentat
+ion/screens/dashboard
+_screen.dart:312:22: 
+Error: Non-optional 
+parameters can't 
+have a default value.
+At line:1 char:1
++ flutter run -d 
+chrome > 
+build_errors_web.txt 
+2>&1
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (lib/fea   
+ tures/da... defa    
+ult value.:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+Try removing the 
+default value or 
+making the parameter 
+optional.
+                
+onTap: () {
+                     
+^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:329:22: Error: 
+Non-optional 
+parameters can't 
+have a default value.
+Try removing the 
+default value or 
+making the parameter 
+optional.
+                
+child: Container(
+                     
+^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:351:16: Error: 
+Expected '{' before 
+this.
+              ),
+               ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:351:16: Error: 
+Expected a class 
+member, but got ','.
+              ),
+               ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:353:36: Error: 
+Non-optional 
+parameters can't 
+have a default value.
+Try removing the 
+default value or 
+making the parameter 
+optional.
+              const 
+SizedBox(height: 24),
+                     
+              ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:353:41: Error: 
+Expected '{' before 
+this.
+              const 
+SizedBox(height: 24),
+                     
+                   ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:353:15: Error: 
+Getters, setters and 
+methods can't be 
+declared to be 
+'const'.
+Try removing the 
+'const' keyword.
+              const 
+SizedBox(height: 24),
+              ^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:353:41: Error: 
+Expected a class 
+member, but got ','.
+              const 
+SizedBox(height: 24),
+                     
+                   ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:354:13: Error: 
+Expected a class 
+member, but got ']'.
+            ],
+            ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:354:14: Error: 
+Expected a class 
+member, but got ','.
+            ],
+             ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:355:11: Error: 
+Expected a class 
+member, but got ')'.
+          ),
+          ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:355:12: Error: 
+Expected a class 
+member, but got ','.
+          ),
+           ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:356:9: Error: 
+Expected a class 
+member, but got ')'.
+        ),
+        ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:356:10: Error: 
+Expected a class 
+member, but got ','.
+        ),
+         ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:357:7: Error: 
+Expected a class 
+member, but got ')'.
+      ),
+      ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:357:8: Error: 
+Expected a class 
+member, but got ','.
+      ),
+       ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:358:5: Error: 
+Expected a class 
+member, but got ')'.
+    );
+    ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:358:6: Error: 
+Expected a class 
+member, but got ';'.
+    );
+     ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:410:1: Error: 
+Expected a 
+declaration, but got 
+'}'.
+}
+^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:34:3: Error: Type 
+'SovereignProfile' 
+not found.
+  SovereignProfile? 
+_userProfile;
+  ^^^^^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:313:32: Error: 
+Undefined name 
+'context'.
+                  Nav
+igator.of(context).pu
+sh(
+                     
+          ^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:313:29: Error: 
+Method invocation is 
+not a constant 
+expression.
+                  Nav
+igator.of(context).pu
+sh(
+                     
+       ^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:316:36: Error: 
+Not a constant 
+expression.
+                     
+ pageBuilder: 
+(context, animation, 
+secondaryAnimation) {
+                     
+              ^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:321:36: Error: 
+Not a constant 
+expression.
+                     
+     opacity: 
+animation,
+                     
+              
+^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:322:34: Error: 
+Not a constant 
+expression.
+                     
+     child: child,
+                     
+            ^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:320:32: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                     
+   return 
+FadeTransition(
+                     
+          
+^^^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:319:43: Error: 
+Not a constant 
+expression.
+                     
+ transitionsBuilder: 
+(context, animation, 
+secondaryAnimation, 
+child) {
+                     
+                     
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:314:21: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                    
+PageRouteBuilder(
+                    
+^^^^^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:314:21: Error: 
+Cannot invoke a 
+non-'const' 
+constructor where a 
+const expression is 
+expected.
+Try using a 
+constructor or 
+factory that is 
+'const'.
+                    
+PageRouteBuilder(
+                    
+^^^^^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:313:41: Error: 
+Method invocation is 
+not a constant 
+expression.
+                  Nav
+igator.of(context).pu
+sh(
+                     
+                   
+^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:312:24: Error: 
+Not a constant 
+expression.
+                
+onTap: () {
+                     
+  ^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:332:41: Error: 
+Method invocation is 
+not a constant 
+expression.
+                    
+color: Colors.white.w
+ithOpacity(0.8),
+                     
+                   
+^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:333:48: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                    
+borderRadius: BorderR
+adius.circular(16),
+                     
+                     
+     ^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:333:48: Error: 
+Cannot invoke a 
+non-'const' 
+constructor where a 
+const expression is 
+expected.
+Try using a 
+constructor or 
+factory that is 
+'const'.
+                    
+borderRadius: BorderR
+adius.circular(16),
+                     
+                     
+     ^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:335:51: Error: 
+Method invocation is 
+not a constant 
+expression.
+                     
+ color: RemediTheme.d
+eepTeal.withOpacity(0
+.2),
+                     
+                     
+        ^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:334:36: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                    
+border: Border.all(
+                     
+              ^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:334:36: Error: 
+Cannot invoke a 
+non-'const' factory 
+where a const 
+expression is 
+expected.
+Try using a 
+constructor or 
+factory that is 
+'const'.
+                    
+border: Border.all(
+                     
+              ^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:331:31: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                  
+decoration: 
+BoxDecoration(
+                     
+         
+^^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:341:29: Error: 
+Not a constant 
+expression.
+                     
+ const 
+SizedBox(width: 12),
+                     
+       ^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:345:57: Error: 
+Method invocation is 
+not a constant 
+expression.
+                     
+     color: RemediThe
+me.darkForest.withOpa
+city(0.5),
+                     
+                     
+              
+^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:344:32: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                     
+   style: TextStyle(
+                     
+          ^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:342:23: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                     
+ Text(
+                     
+ ^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:339:31: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                    
+children: [
+                     
+         ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:338:26: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                  
+child: Row(
+                     
+    ^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:329:24: Error: 
+Constant expression 
+expected.
+Try inserting 
+'const'.
+                
+child: Container(
+                     
+  ^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:329:24: Error: 
+Cannot invoke a 
+non-'const' 
+constructor where a 
+const expression is 
+expected.
+Try using a 
+constructor or 
+factory that is 
+'const'.
+                
+child: Container(
+                     
+  ^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:73:21: Error: Not 
+a constant 
+expression.
+              const 
+SizedBox(height: 48),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:116:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 60),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:121:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 60),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:135:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 12),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:151:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 60),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:159:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 32),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:171:19: Error: 
+Not a constant 
+expression.
+                  
+SizedBox(width: 16),
+                  
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:182:21: Error: 
+Not a constant 
+expression.
+              const 
+SizedBox(height: 48),
+                    
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:127:28: Error: 
+The method 
+'RemediButton' isn't 
+defined for the type 
+'_DashboardScreenStat
+e'.
+ - '_DashboardScreenS
+tate' is from 'packag
+e:remedibook/features
+/dashboard/presentati
+on/screens/dashboard_
+screen.dart' ('lib/fe
+atures/dashboard/pres
+entation/screens/dash
+board_screen.dart').
+Try correcting the 
+name to the name of 
+an existing method, 
+or defining a method 
+named 'RemediButton'.
+                    
+child: RemediButton(
+                     
+      ^^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:198:15: Error: 
+Not a constant 
+expression.
+        const 
+SizedBox(height: 24),
+              
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:281:17: Error: 
+Not a constant 
+expression.
+          const 
+SizedBox(width: 16),
+                
+^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:244:22: Error: 
+The getter 
+'GoogleFonts' isn't 
+defined for the type 
+'_DashboardScreenStat
+e'.
+ - '_DashboardScreenS
+tate' is from 'packag
+e:remedibook/features
+/dashboard/presentati
+on/screens/dashboard_
+screen.dart' ('lib/fe
+atures/dashboard/pres
+entation/screens/dash
+board_screen.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+              style: 
+GoogleFonts.inter(
+                     
+^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:240:19: Error: 
+Too few positional 
+arguments: 1 
+required, 0 given.
+          SizedBox(
+                  ^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:288:26: Error: 
+The getter 
+'GoogleFonts' isn't 
+defined for the type 
+'_DashboardScreenStat
+e'.
+ - '_DashboardScreenS
+tate' is from 'packag
+e:remedibook/features
+/dashboard/presentati
+on/screens/dashboard_
+screen.dart' ('lib/fe
+atures/dashboard/pres
+entation/screens/dash
+board_screen.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                  
+style: 
+GoogleFonts.inter(
+                     
+    ^^^^^^^^^^^
+lib/features/dashboar
+d/presentation/screen
+s/dashboard_screen.da
+rt:297:26: Error: 
+The getter 
+'GoogleFonts' isn't 
+defined for the type 
+'_DashboardScreenStat
+e'.
+ - '_DashboardScreenS
+tate' is from 'packag
+e:remedibook/features
+/dashboard/presentati
+on/screens/dashboard_
+screen.dart' ('lib/fe
+atures/dashboard/pres
+entation/screens/dash
+board_screen.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                  
+style: 
+GoogleFonts.inter(
+                     
+    ^^^^^^^^^^^
+lib/features/onboardi
+ng/presentation/scree
+ns/heritage_onboardin
+g.dart:134:40: 
+Error: The getter 
+'_addAllergy' isn't 
+defined for the type 
+'_HeritageOnboardingS
+creenState'.
+ - '_HeritageOnboardi
+ngScreenState' is 
+from 'package:remedib
+ook/features/onboardi
+ng/presentation/scree
+ns/heritage_onboardin
+g.dart' ('lib/feature
+s/onboarding/presenta
+tion/screens/heritage
+_onboarding.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'_addAllergy'.
+                     
+       onPressed: 
+_addAllergy,
+                     
+                  
+^^^^^^^^^^^
+lib/features/onboardi
+ng/presentation/scree
+ns/heritage_onboardin
+g.dart:143:45: 
+Error: The method 
+'_addAllergy' isn't 
+defined for the type 
+'_HeritageOnboardingS
+creenState'.
+ - '_HeritageOnboardi
+ngScreenState' is 
+from 'package:remedib
+ook/features/onboardi
+ng/presentation/scree
+ns/heritage_onboardin
+g.dart' ('lib/feature
+s/onboarding/presenta
+tion/screens/heritage
+_onboarding.dart').
+Try correcting the 
+name to the name of 
+an existing method, 
+or defining a method 
+named '_addAllergy'.
+                     
+   onSubmitted: (_) 
+=> _addAllergy(),
+                     
+                     
+  ^^^^^^^^^^^
+lib/features/onboardi
+ng/presentation/scree
+ns/heritage_onboardin
+g.dart:192:7: Error: 
+No named parameter 
+with the name 
+'controlType'.
+      controlType: Li
+stTileControlType.tra
+iling,
+      ^^^^^^^^^^^
+/D:/flutter/packages/
+flutter/lib/src/mater
+ial/checkbox_list_til
+e.dart:173:9: 
+Context: Found this 
+candidate, but the 
+arguments don't 
+match.
+  const 
+CheckboxListTile({
+        
+^^^^^^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:34:3: Error: 
+'SovereignProfile' 
+isn't a type.
+  SovereignProfile? 
+_userProfile;
+  ^^^^^^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:56:26: Error: The 
+getter 'SecureProfile
+Storage' isn't 
+defined for the type 
+'_InquiryOverlayState
+'.
+ - '_InquiryOverlaySt
+ate' is from 'package
+:remedibook/features/
+discovery/presentatio
+n/screens/inquiry_ove
+rlay.dart' ('lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 'Secur
+eProfileStorage'.
+    _userProfile = 
+await SecureProfileSt
+orage.getProfile();
+                     
+    
+^^^^^^^^^^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:85:9: Error: The 
+getter 
+'SafetyInterceptor' 
+isn't defined for 
+the type '_InquiryOve
+rlayState'.
+ - '_InquiryOverlaySt
+ate' is from 'package
+:remedibook/features/
+discovery/presentatio
+n/screens/inquiry_ove
+rlay.dart' ('lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'SafetyInterceptor'.
+    if (SafetyInterce
+ptor.isEmergency(quer
+y)) {
+        
+^^^^^^^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:86:7: Error: The 
+getter 
+'SafetyInterceptor' 
+isn't defined for 
+the type '_InquiryOve
+rlayState'.
+ - '_InquiryOverlaySt
+ate' is from 'package
+:remedibook/features/
+discovery/presentatio
+n/screens/inquiry_ove
+rlay.dart' ('lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'SafetyInterceptor'.
+      SafetyIntercept
+or.triggerRedAlert(co
+ntext);
+      
+^^^^^^^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:474:54: Error: The 
+getter 'conflicts' 
+isn't defined for 
+the type 
+'SearchResult'.
+ - 'SearchResult' is 
+from 'package:remedib
+ook/features/discover
+y/domain/services/sea
+rch_service.dart' ('l
+ib/features/discovery
+/domain/services/sear
+ch_service.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'conflicts'.
+          if 
+(_userProfile != 
+null && _searchResult
+?.conflicts?.contains
+Key(remedy.id) == 
+true)
+                     
+                     
+           ^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:491:30: Error: The 
+getter 'GoogleFonts' 
+isn't defined for 
+the type '_InquiryOve
+rlayState'.
+ - '_InquiryOverlaySt
+ate' is from 'package
+:remedibook/features/
+discovery/presentatio
+n/screens/inquiry_ove
+rlay.dart' ('lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                     
+ style: 
+GoogleFonts.inter(
+                     
+        ^^^^^^^^^^^
+lib/features/discover
+y/presentation/screen
+s/inquiry_overlay.dar
+t:577:26: Error: The 
+getter 'GoogleFonts' 
+isn't defined for 
+the type '_InquiryOve
+rlayState'.
+ - '_InquiryOverlaySt
+ate' is from 'package
+:remedibook/features/
+discovery/presentatio
+n/screens/inquiry_ove
+rlay.dart' ('lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                  
+style: 
+GoogleFonts.inter(
+                     
+    ^^^^^^^^^^^
+lib/features/discover
+y/presentation/widget
+s/fulfillment_stack.d
+art:115:40: Error: 
+The getter 
+'GoogleFonts' isn't 
+defined for the type 
+'FulfillmentStack'.
+ - 
+'FulfillmentStack' 
+is from 'package:reme
+dibook/features/disco
+very/presentation/wid
+gets/fulfillment_stac
+k.dart' ('lib/feature
+s/discovery/presentat
+ion/widgets/fulfillme
+nt_stack.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                     
+           style: 
+GoogleFonts.inter(
+                     
+                  
+^^^^^^^^^^^
+lib/features/discover
+y/presentation/widget
+s/fulfillment_stack.d
+art:260:40: Error: 
+The getter 
+'GoogleFonts' isn't 
+defined for the type 
+'FulfillmentStack'.
+ - 
+'FulfillmentStack' 
+is from 'package:reme
+dibook/features/disco
+very/presentation/wid
+gets/fulfillment_stac
+k.dart' ('lib/feature
+s/discovery/presentat
+ion/widgets/fulfillme
+nt_stack.dart').
+Try correcting the 
+name to the name of 
+an existing getter, 
+or defining a getter 
+or field named 
+'GoogleFonts'.
+                     
+           style: 
+GoogleFonts.inter(
+                     
+                  
+^^^^^^^^^^^
+Unhandled exception:
+Unsupported 
+operation: 
+Unsupported invalid 
+type InvalidType(<inv
+alid>) 
+(InvalidType). 
+Encountered while 
+compiling file:///D:/
+RemediBook_G/lib/feat
+ures/discovery/presen
+tation/screens/inquir
+y_overlay.dart, 
+which contains the 
+type: InvalidType(<in
+valid>).
+#0      LibraryCompil
+er._typeCompilationEr
+ror (package:dev_comp
+iler/src/kernel/compi
+ler_new.dart:4479)
+#1      LibraryCompil
+er._emitType (package
+:dev_compiler/src/ker
+nel/compiler_new.dart
+:4444)
+#2      LibraryCompil
+er._emitClassSignatur
+e.emitClassFieldSigna
+ture (package:dev_com
+piler/src/kernel/comp
+iler_new.dart:2155)
+#3      LibraryCompil
+er._emitClassSignatur
+e (package:dev_compil
+er/src/kernel/compile
+r_new.dart:2329)
+#4      LibraryCompil
+er._emitClassDeclarat
+ion (package:dev_comp
+iler/src/kernel/compi
+ler_new.dart:1552)
+#5      LibraryCompil
+er._emitClass (packag
+e:dev_compiler/src/ke
+rnel/compiler_new.dar
+t:1418)
+#6      List.forEach 
+(dart:core-patch/grow
+able_array.dart:428)
+#7      LibraryCompil
+er._emitLibrary (pack
+age:dev_compiler/src/
+kernel/compiler_new.d
+art:1340)
+#8      LibraryCompil
+er.emitLibrary (packa
+ge:dev_compiler/src/k
+ernel/compiler_new.da
+rt:954)
+#9      LibraryBundle
+Compiler.emitModule (
+package:dev_compiler/
+src/kernel/compiler_n
+ew.dart:165)
+#10     IncrementalJa
+vaScriptBundler.compi
+le (package:frontend_
+server/src/javascript
+_bundle.dart:324)
+#11     FrontendCompi
+ler.writeJavaScriptBu
+ndle (package:fronten
+d_server/frontend_ser
+ver.dart:909)
+<asynchronous 
+suspension>
+#12     FrontendCompi
+ler.compile (package:
+frontend_server/front
+end_server.dart:715)
+<asynchronous 
+suspension>
+#13     listenAndComp
+ile.<anonymous 
+closure> (package:fro
+ntend_server/frontend
+_server.dart:1436)
+<asynchronous 
+suspension>
+The Dart compiler 
+exited unexpectedly.
+Waiting for connection from debug service on Chrome...             26.8s
+Failed to compile 
+application.

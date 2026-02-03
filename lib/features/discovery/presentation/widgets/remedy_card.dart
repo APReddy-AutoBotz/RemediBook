@@ -67,114 +67,117 @@ class _RemedyCardState extends State<RemedyCard>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: RemediTheme.spaceMD,
-        vertical: RemediTheme.spaceSM,
-      ),
-      decoration: RemediDecorations.stoneBordered(
-        borderRadius: RemediTheme.radiusStone,
-        shadowOpacity: 0.04,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(RemediTheme.radiusStone),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Macro Photo Header
-            if (widget.imagePath != null)
-              _buildMacroPhotoHeader(),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: RemediTheme.spaceMD,
+          vertical: RemediTheme.spaceSM,
+        ),
+        decoration: RemediDecorations.stoneBordered(
+          borderRadius: RemediTheme.radiusStone,
+          shadowOpacity: 0.04,
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(RemediTheme.radiusStone),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Macro Photo Header
+              if (widget.imagePath != null)
+                _buildMacroPhotoHeader(),
 
-            // Content Section
-            Padding(
-              padding: const EdgeInsets.all(RemediTheme.spaceMD),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Title & Evidence Badge
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Title (Lora Serif)
-                            Text(
-                              widget.title,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineSmall
-                                  ?.copyWith(
-                                    fontSize: 20,
-                                    height: 1.2,
-                                  ),
-                            ),
-                            const SizedBox(height: RemediTheme.spaceXS),
-                            // Subtitle
-                            Text(
-                              widget.subtitle,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                    color: RemediTheme.charcoal.withOpacity(0.7),
-                                  ),
-                            ),
-                          ],
+              // Content Section
+              Padding(
+                padding: const EdgeInsets.all(RemediTheme.spaceMD),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title & Evidence Badge
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Title (Lora Serif)
+                              Text(
+                                widget.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(
+                                      fontSize: 20,
+                                      height: 1.2,
+                                    ),
+                              ),
+                              const SizedBox(height: RemediTheme.spaceXS),
+                              // Subtitle
+                              Text(
+                                widget.subtitle,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      color: RemediTheme.charcoal.withOpacity(0.7),
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: RemediTheme.spaceSM),
-                      RemediEvidenceBadge(label: widget.evidenceLedger.label),
-                    ],
-                  ),
-
-                  const SizedBox(height: RemediTheme.spaceMD),
-
-                  // Description
-                  Text(
-                    widget.description,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-
-                  // Benefits
-                  if (widget.benefits.isNotEmpty) ...[
-                    const SizedBox(height: RemediTheme.spaceSM),
-                    Wrap(
-                      spacing: RemediTheme.spaceSM,
-                      runSpacing: RemediTheme.spaceXS,
-                      children: widget.benefits
-                          .map((benefit) => _buildBenefitChip(benefit))
-                          .toList(),
+                        const SizedBox(width: RemediTheme.spaceSM),
+                        RemediEvidenceBadge(label: widget.evidenceLedger.label),
+                      ],
                     ),
-                  ],
 
-                  const SizedBox(height: RemediTheme.spaceSM),
+                    const SizedBox(height: RemediTheme.spaceMD),
 
-                  // Evidence Metadata
-                  Row(
-                    children: [
-                      EvidenceSourceCount(
-                        count: widget.evidenceLedger.sourceCount,
+                    // Description
+                    Text(
+                      widget.description,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+
+                    // Benefits
+                    if (widget.benefits.isNotEmpty) ...[ 
+                      const SizedBox(height: RemediTheme.spaceSM),
+                      Wrap(
+                        spacing: RemediTheme.spaceSM,
+                        runSpacing: RemediTheme.spaceXS,
+                        children: widget.benefits
+                            .map((benefit) => _buildBenefitChip(benefit))
+                            .toList(),
                       ),
-                      const SizedBox(width: RemediTheme.spaceSM),
-                      ReviewStatusIndicator(ledger: widget.evidenceLedger),
                     ],
-                  ),
 
-                  // Receipts Drawer Toggle
-                  const SizedBox(height: RemediTheme.spaceSM),
-                  _buildReceiptsDrawerToggle(),
-                ],
+                    const SizedBox(height: RemediTheme.spaceSM),
+
+                    // Evidence Metadata
+                    Row(
+                      children: [
+                        EvidenceSourceCount(
+                          count: widget.evidenceLedger.sourceCount,
+                        ),
+                        const SizedBox(width: RemediTheme.spaceSM),
+                        ReviewStatusIndicator(ledger: widget.evidenceLedger),
+                      ],
+                    ),
+
+                    // Receipts Drawer Toggle
+                    const SizedBox(height: RemediTheme.spaceSM),
+                    _buildReceiptsDrawerToggle(),
+                  ],
+                ),
               ),
-            ),
 
-            // Expandable Receipts Drawer
-            SizeTransition(
-              sizeFactor: _expandAnimation,
-              child: _buildReceiptsDrawer(),
-            ),
-          ],
+              // Expandable Receipts Drawer
+              SizeTransition(
+                sizeFactor: _expandAnimation,
+                child: _buildReceiptsDrawer(),
+              ),
+            ],
+          ),
         ),
       ),
     );
